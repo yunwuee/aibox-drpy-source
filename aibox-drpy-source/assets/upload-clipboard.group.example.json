@@ -1,0 +1,14 @@
+{
+  "groupTag": "示例分组",
+  "category": "video",
+  "entries": [
+    {
+      "name": "html-video-example.js",
+      "displayName": "示例 HTML 影视站",
+      "category": "video",
+      "groupTag": "示例分组",
+      "sort": 0,
+      "sourceCode": "var rule = { title: '示例 HTML 影视站', host: 'https://example.com', 类型: '影视', url: '/', searchUrl: '/search?wd=**' };"
+    }
+  ]
+}

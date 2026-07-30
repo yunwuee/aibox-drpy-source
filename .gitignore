@@ -1,0 +1,10 @@
+**/node_modules/
+**/output/
+**/temp/
+**/coverage/
+**/*.log
+**/*.tmp
+**/.DS_Store
+**/Thumbs.db
+packages/
+aibox-drpy-source/config/aibox.config.json

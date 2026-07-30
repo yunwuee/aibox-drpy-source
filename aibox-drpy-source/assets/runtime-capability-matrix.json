@@ -1,0 +1,66 @@
+{
+  "runtime": {
+    "crypto": {
+      "status": "partial-aligned",
+      "features": [
+        "getCryptoJS",
+        "CryptoJS",
+        "CryptoJSW",
+        "MD5",
+        "AES-CBC",
+        "enc.Utf8",
+        "enc.Hex",
+        "enc.Base64",
+        "mode.CBC",
+        "pad.Pkcs7"
+      ]
+    },
+    "verify": {
+      "status": "partial-aligned",
+      "features": [
+        "verifyCode(url)",
+        "RULE_CK persistence",
+        "verify_check submit",
+        "captcha image fetch"
+      ]
+    },
+    "ocr": {
+      "status": "default-aligned",
+      "defaultApi": "https://api.nn.ci/ocr/b64/text",
+      "defaultRetry": 3,
+      "features": [
+        "http endpoint",
+        "command mode",
+        "timeout control",
+        "OcrApi.classification(img)",
+        "OCR_API / OCR_RETRY sandbox constants",
+        "drpy-doctor / ocr-check diagnostics"
+      ]
+    },
+    "requireAllowList": [
+      "crypto-js",
+      "crypto",
+      "node:crypto",
+      "buffer",
+      "url"
+    ],
+    "liveCheck": {
+      "status": "enabled",
+      "stdoutMode": "compact",
+      "supportsVerbose": true
+    },
+    "liveHeal": {
+      "status": "enabled",
+      "dependsOn": [
+        "liveCheck",
+        "validate-rule",
+        "check-syntax"
+      ]
+    }
+  },
+  "knownGaps": [
+    "Cloudflare / 滑块 / 极验等高级验证未覆盖",
+    "CryptoJS 以常用集为主，未对齐浏览器全量生态",
+    "某些站点专有 require 依赖仍需要按需扩展白名单"
+  ]
+}

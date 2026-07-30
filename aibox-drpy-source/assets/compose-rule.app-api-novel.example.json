@@ -1,0 +1,58 @@
+{
+  "siteName": "示例 App API 小说站",
+  "host": "https://api.example.com",
+  "sourceKind": "app-api",
+  "contentType": "novel",
+  "classes": [
+    { "name": "玄幻", "id": "fantasy" },
+    { "name": "都市", "id": "city" }
+  ],
+  "searchable": 1,
+  "quickSearch": 0,
+  "headers": {
+    "User-Agent": "ExampleReader/1.0",
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  "stages": {
+    "home": {
+      "url": "/v1/books/home",
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "latest", "id": "id" }
+    },
+    "category": {
+      "url": "/v1/books/list",
+      "method": "POST",
+      "bodyType": "json",
+      "body": { "type": "fyclass", "page": "fypage" },
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "latest", "id": "id" }
+    },
+    "search": {
+      "url": "/v1/books/search",
+      "method": "POST",
+      "bodyType": "json",
+      "body": { "keyword": "**", "page": "fypage" },
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "latest", "id": "id" }
+    },
+    "detail": {
+      "url": "/v1/books/fyid",
+      "dataPath": "data",
+      "fields": { "title": "name", "image": "cover", "remarks": "latest", "content": "summary" }
+    },
+    "catalog": {
+      "url": "/v1/books/fyid/chapters",
+      "listPath": "data.items",
+      "fields": { "title": "name", "id": "id" }
+    },
+    "reader": {
+      "url": "/v1/chapters/read",
+      "method": "POST",
+      "bodyType": "json",
+      "body": { "id": "fyid" },
+      "dataPath": "data",
+      "fields": { "title": "name", "content": "content" }
+    }
+  }
+}

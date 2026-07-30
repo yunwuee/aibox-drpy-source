@@ -1,0 +1,43 @@
+{
+  "name": "aibox-drpy-source-skill-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portable runtime, validation, and helper commands for the public aibox-drpy-source skill.",
+  "author": {
+    "name": "yunwuee",
+    "url": "https://github.com/yunwuee"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/yunwuee/aibox-drpy-source#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunwuee/aibox-drpy-source.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yunwuee/aibox-drpy-source/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "help": "node scripts/aibox-skill-cli.mjs help",
+    "doctor": "node scripts/aibox-skill-cli.mjs doctor",
+    "test": "node --test scripts/tests/*.test.mjs",
+    "validate:public": "node scripts/validate-public-package.mjs",
+    "validate:skill": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/validate-skill.ps1",
+    "init:config": "node scripts/init-aibox-config.mjs",
+    "package:zip": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-skill.ps1"
+  },
+  "dependencies": {
+    "acorn": "^8.15.0",
+    "acorn-walk": "^8.3.4",
+    "cheerio": "^1.2.0",
+    "iconv-lite": "^0.6.3",
+    "magic-string": "^0.30.17",
+    "tough-cookie": "^5.1.2"
+  },
+  "overrides": {
+    "undici": ">=7.28.0"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  }
+}

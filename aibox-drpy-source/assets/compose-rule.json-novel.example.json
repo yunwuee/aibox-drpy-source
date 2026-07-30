@@ -1,0 +1,33 @@
+{
+  "siteName": "示例 JSON 小说站",
+  "host": "https://api.example.com",
+  "sourceKind": "json",
+  "contentType": "novel",
+  "homeUrl": "/api/book/home",
+  "url": "/api/book/list?t=fyclass&pg=fypage",
+  "searchUrl": "/api/book/search?wd=**&pg=fypage",
+  "detailUrl": "/api/book/detail?id=fyid",
+  "catalogUrl": "/api/book/fyid/chapters",
+  "readerUrl": "/api/book/chapter/fyid",
+  "className": "玄幻&都市",
+  "classUrl": "1&2",
+  "mappings": {
+    "recommendListPath": "data.list",
+    "categoryListPath": "data.list",
+    "searchListPath": "data.list",
+    "titleField": "title",
+    "imageField": "pic",
+    "descField": "remarks",
+    "linkField": "id",
+    "detailPath": "data",
+    "detailTitleField": "title",
+    "detailImageField": "pic",
+    "detailRemarksField": "remarks",
+    "detailContentField": "content",
+    "chapterListPath": "chapters",
+    "chapterTitleField": "title",
+    "chapterUrlField": "id",
+    "readerTitlePath": "data.title",
+    "readerContentPath": "data.content"
+  }
+}

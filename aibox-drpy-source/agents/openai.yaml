@@ -1,0 +1,7 @@
+interface:
+  display_name: "Aibox DRPY 写源与验收"
+  short_description: "生成、修复并真实验收 Aibox drpy-node DS 源"
+  default_prompt: "使用 $aibox-drpy-source 分析目标站点，以最低复杂度生成或修复 DS 源，并完成 L1/L2/L3 真实链路验收。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,42 @@
+{
+  "siteName": "示例 JSON 影视站",
+  "host": "https://api.example.com",
+  "contentType": "video",
+  "sourceKind": "json",
+  "homeUrl": "/api/vod/home",
+  "url": "/api/vod/list?t=fyclass&pg=fypage",
+  "searchUrl": "/api/vod/search?wd=**&pg=fypage",
+  "detailUrl": "/api/vod/detail?id=fyid",
+  "className": "电影&电视剧",
+  "classUrl": "1&2",
+  "searchable": 1,
+  "quickSearch": 0,
+  "filterable": 0,
+  "playParse": true,
+  "captchaTag": "系统安全验证|输入验证码|安全验证|验证码",
+  "lazyMode": "parse",
+  "headers": {
+    "User-Agent": "MOBILE_UA"
+  },
+  "mappings": {
+    "recommendListPath": "data.list",
+    "categoryListPath": "data.list",
+    "searchListPath": "data.list",
+    "titleField": "title",
+    "imageField": "pic",
+    "descField": "remarks",
+    "linkField": "id",
+    "detailPath": "data",
+    "detailTitleField": "title",
+    "detailImageField": "pic",
+    "detailTypeField": "type_name",
+    "detailRemarksField": "remarks",
+    "detailYearField": "year",
+    "detailAreaField": "area",
+    "detailActorField": "actor",
+    "detailDirectorField": "director",
+    "detailContentField": "content",
+    "detailPlayFromField": "vod_play_from",
+    "detailPlayUrlField": "vod_play_url"
+  }
+}

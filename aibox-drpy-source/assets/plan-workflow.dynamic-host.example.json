@@ -1,0 +1,15 @@
+{
+  "siteName": "示例动态域名站",
+  "host": "https://publish.example.com",
+  "sourceKind": "html",
+  "contentType": "video",
+  "dynamicHostMode": true,
+  "publishUrls": [
+    "https://publish.example.com/",
+    "https://static.example.com/publish.html"
+  ],
+  "fallbackHosts": [
+    "https://backup1.example.com",
+    "https://backup2.example.com"
+  ]
+}

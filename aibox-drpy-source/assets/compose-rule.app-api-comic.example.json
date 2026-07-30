@@ -1,0 +1,49 @@
+{
+  "siteName": "示例 App API 漫画站",
+  "host": "https://api.example.com",
+  "sourceKind": "app-api",
+  "contentType": "comic",
+  "classes": [
+    { "name": "热血", "id": "action" },
+    { "name": "恋爱", "id": "romance" }
+  ],
+  "searchable": 1,
+  "quickSearch": 0,
+  "headers": {
+    "User-Agent": "ExampleComic/1.0",
+    "Accept": "application/json"
+  },
+  "stages": {
+    "home": {
+      "url": "/v1/comics/home",
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "latest", "id": "id" }
+    },
+    "category": {
+      "url": "/v1/comics?type=fyclass&page=fypage",
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "latest", "id": "id" }
+    },
+    "search": {
+      "url": "/v1/comics/search?keyword=**&page=fypage",
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "latest", "id": "id" }
+    },
+    "detail": {
+      "url": "/v1/comics/fyid",
+      "dataPath": "data",
+      "fields": { "title": "name", "image": "cover", "remarks": "latest", "content": "summary" }
+    },
+    "catalog": {
+      "url": "/v1/comics/fyid/chapters",
+      "listPath": "data.items",
+      "fields": { "title": "name", "id": "id" }
+    },
+    "reader": {
+      "url": "/v1/chapters/fyid/pages",
+      "method": "GET",
+      "dataPath": "data",
+      "fields": { "images": "pages", "image": "src" }
+    }
+  }
+}

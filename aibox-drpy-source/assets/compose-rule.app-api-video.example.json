@@ -1,0 +1,48 @@
+{
+  "siteName": "示例 App API 影视站",
+  "host": "https://api.example.com",
+  "sourceKind": "app-api",
+  "contentType": "video",
+  "classes": [
+    { "name": "电影", "id": "movie" },
+    { "name": "电视剧", "id": "series" }
+  ],
+  "searchable": 1,
+  "quickSearch": 0,
+  "headers": {
+    "User-Agent": "ExampleApp/1.0",
+    "Accept": "application/json"
+  },
+  "stages": {
+    "home": {
+      "url": "/v1/videos/home",
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "remarks", "id": "id" }
+    },
+    "category": {
+      "url": "/v1/videos?type=fyclass&page=fypage",
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "remarks", "id": "id" }
+    },
+    "search": {
+      "url": "/v1/videos/search?keyword=**&page=fypage",
+      "listPath": "data.items",
+      "fields": { "title": "name", "image": "cover", "desc": "remarks", "id": "id" }
+    },
+    "detail": {
+      "url": "/v1/videos/fyid",
+      "dataPath": "data",
+      "fields": { "title": "name", "image": "cover", "remarks": "remarks", "content": "summary" }
+    },
+    "catalog": {
+      "url": "/v1/videos/fyid/episodes",
+      "listPath": "data.items",
+      "fields": { "title": "name", "id": "id" }
+    },
+    "play": {
+      "url": "/v1/episodes/fyid/play",
+      "dataPath": "data",
+      "fields": { "url": "play_url" }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+* text=auto
+*.md text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.ps1 text eol=crlf
+aibox-drpy-source/vendor/crypto-js/** -whitespace

@@ -1,0 +1,6 @@
+{
+  "site_name": "示例站点",
+  "host": "https://example.com",
+  "content_type": "video",
+  "source_kind": "html"
+}

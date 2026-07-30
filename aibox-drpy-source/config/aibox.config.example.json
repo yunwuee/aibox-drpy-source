@@ -1,0 +1,99 @@
+{
+  "outputDir": "../output",
+  "clipboardShare": {
+    "baseUrl": "https://textdb.online",
+    "provider": "云1",
+    "groupProvider": "云G1",
+    "keyLength": 24,
+    "timeoutMs": 15000
+  },
+  "embeddedDrpy": {
+    "enabled": true,
+    "port": 5757,
+    "nodeCommand": "node",
+    "sessionRoot": "../output/live-sessions",
+    "reportRoot": "../output/live-check",
+    "stateFile": "../output/embedded-drpy.state.json",
+    "sourceDirs": [
+      "../output",
+      "../../output"
+    ],
+    "defaultDepth": "smoke",
+    "cleanupOnSuccess": true,
+    "maxHealRounds": 8,
+    "ocr": {
+      "mode": "http",
+      "endpoint": "https://api.nn.ci/ocr/b64/text",
+      "command": "",
+      "args": [],
+      "cwd": "",
+      "env": {},
+      "headers": {},
+      "timeoutMs": 15000,
+      "bodyMode": "auto",
+      "responsePath": "",
+      "retry": 3
+    },
+    "crypto": {
+      "enableRequireShim": true,
+      "requireAllowList": [
+        "crypto-js",
+        "crypto",
+        "node:crypto",
+        "buffer",
+        "url"
+      ],
+      "preferNodeCrypto": true
+    },
+    "report": {
+      "stdoutMode": "compact",
+      "keepVerboseJson": true
+    }
+  },
+  "downstream": {
+    "browser": {
+      "enabled": false,
+      "command": "node",
+      "args": [
+        "C:\\path\\to\\your-browser-mcp-server.js"
+      ],
+      "cwd": "",
+      "env": {},
+      "toolMap": {
+        "navigate": "playwright_navigate",
+        "html": "playwright_get_visible_html",
+        "text": "playwright_get_visible_text",
+        "screenshot": "playwright_screenshot"
+      },
+      "defaultNavigateArgs": {
+        "headless": true,
+        "waitUntil": "load",
+        "timeout": 30000
+      },
+      "defaultHtmlArgs": {
+        "cleanHtml": true,
+        "removeComments": true,
+        "removeScripts": false,
+        "maxLength": 180000
+      }
+    },
+    "search": {
+      "enabled": false,
+      "command": "node",
+      "args": [
+        "C:\\path\\to\\your-search-mcp-server.js"
+      ],
+      "cwd": "",
+      "env": {},
+      "toolMap": {
+        "search": "tavily-search"
+      },
+      "defaultSearchArgs": {
+        "search_depth": "advanced",
+        "include_raw_content": true,
+        "max_results": 6,
+        "topic": "general"
+      }
+    }
+  }
+}

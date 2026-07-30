@@ -1,0 +1,33 @@
+{
+  "siteName": "示例 JSON 漫画站",
+  "host": "https://api.example.com",
+  "sourceKind": "json",
+  "contentType": "comic",
+  "homeUrl": "/api/comic/home",
+  "url": "/api/comic/list?t=fyclass&pg=fypage",
+  "searchUrl": "/api/comic/search?wd=**&pg=fypage",
+  "detailUrl": "/api/comic/detail?id=fyid",
+  "catalogUrl": "/api/comic/fyid/chapters",
+  "readerUrl": "/api/comic/chapter/fyid",
+  "className": "热血&恋爱",
+  "classUrl": "1&2",
+  "mappings": {
+    "recommendListPath": "data.list",
+    "categoryListPath": "data.list",
+    "searchListPath": "data.list",
+    "titleField": "title",
+    "imageField": "pic",
+    "descField": "remarks",
+    "linkField": "id",
+    "detailPath": "data",
+    "detailTitleField": "title",
+    "detailImageField": "pic",
+    "detailRemarksField": "remarks",
+    "detailContentField": "content",
+    "chapterListPath": "chapters",
+    "chapterTitleField": "title",
+    "chapterUrlField": "id",
+    "imageListPath": "data.images",
+    "imageItemField": "url"
+  }
+}

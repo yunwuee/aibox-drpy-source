@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+        node:
+          - 20.18.1
+          - 22
+
+    defaults:
+      run:
+        working-directory: aibox-drpy-source
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: aibox-drpy-source/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate public package
+        run: npm run validate:public
+
+      - name: Run tests
+        run: npm test
+
+      - name: Smoke test CLI
+        run: node scripts/aibox-skill-cli.mjs resources list
+
+      - name: Validate zip package
+        if: runner.os == 'Windows' && matrix.node == '20.18.1'
+        shell: pwsh
+        run: |
+          ./scripts/package-skill.ps1 -OutputDir ../packages
+          $archive = Get-ChildItem ../packages/aibox-drpy-source-skill-*.zip | Select-Object -First 1
+          if (-not $archive) { throw '未生成 zip 包' }
