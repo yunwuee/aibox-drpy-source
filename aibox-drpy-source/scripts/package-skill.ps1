@@ -26,6 +26,11 @@ $SkillRoot = Resolve-Directory $SkillRoot
 if (-not (Test-Path -LiteralPath (Join-Path $SkillRoot 'SKILL.md') -PathType Leaf)) {
   throw "SKILL.md not found under $SkillRoot"
 }
+$packageJsonPath = Join-Path $SkillRoot 'package.json'
+if (-not (Test-Path -LiteralPath $packageJsonPath -PathType Leaf)) {
+  throw "package.json not found under $SkillRoot"
+}
+$packageMetadata = Get-Content -Raw -Encoding UTF8 -LiteralPath $packageJsonPath | ConvertFrom-Json
 
 $repoRoot = Split-Path $SkillRoot -Parent
 if (-not $OutputDir) {
@@ -115,7 +120,7 @@ foreach ($item in $items) {
   }
 }
 
-foreach ($rootFile in @('README.md', 'THIRD_PARTY_NOTICES.md')) {
+foreach ($rootFile in @('README.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md')) {
   $source = Join-Path $repoRoot $rootFile
   if (Test-Path -LiteralPath $source -PathType Leaf) {
     Copy-Item -LiteralPath $source -Destination (Join-Path $stageRoot $rootFile) -Force
@@ -145,6 +150,7 @@ Example prompt:
 Notes:
 - This package contains no built-in site sources or user-generated rules.
 - This package excludes node_modules/, output/, temp/, logs, and config/aibox.config.json.
+- Read LICENSE before using the Skill. This is a source-available package, not an MIT package.
 - Read README.md for detailed installation, prompts, commands, and safety boundaries.
 - On Windows, if Python-based skill validation reads Chinese text as GBK, run it with PYTHONUTF8=1.
 '@
@@ -152,24 +158,31 @@ Write-Utf8NoBom (Join-Path $stageRoot 'INSTALL.txt') $installText
 
 $manifest = [ordered]@{
   name = 'aibox-drpy-source'
+  version = [string]$packageMetadata.version
   package = (Split-Path $zipPath -Leaf)
   packagedAt = (Get-Date).ToUniversalTime().ToString('o')
+  author = 'yunwuee'
+  authorUrl = 'https://github.com/yunwuee'
+  contact = 'yunwuee@gmail.com'
+  license = [string]$packageMetadata.license
+  licenseFile = 'LICENSE'
   nodeModulesIncluded = $false
   builtInSourcesIncluded = $false
   included = @(
     'README.md',
-    'THIRD_PARTY_NOTICES.md',
-    'SKILL.md',
     'LICENSE',
-    'agents/openai.yaml',
-    'assets/',
-    'config/aibox.config.example.json',
-    'package.json',
-    'package-lock.json',
-    'references/',
-    'scripts/',
-    'template/',
-    'vendor/'
+    'THIRD_PARTY_NOTICES.md',
+    'aibox-drpy-source/SKILL.md',
+    'aibox-drpy-source/LICENSE',
+    'aibox-drpy-source/agents/openai.yaml',
+    'aibox-drpy-source/assets/',
+    'aibox-drpy-source/config/aibox.config.example.json',
+    'aibox-drpy-source/package.json',
+    'aibox-drpy-source/package-lock.json',
+    'aibox-drpy-source/references/',
+    'aibox-drpy-source/scripts/',
+    'aibox-drpy-source/template/',
+    'aibox-drpy-source/vendor/'
   )
   excluded = @(
     'output/',
@@ -201,6 +214,7 @@ try {
   $entries = @($zip.Entries | ForEach-Object { $_.FullName -replace '\\', '/' })
   $requiredEntries = @(
     'README.md',
+    'LICENSE',
     'THIRD_PARTY_NOTICES.md',
     'aibox-drpy-source/SKILL.md',
     'aibox-drpy-source/LICENSE',

@@ -1,12 +1,13 @@
 # 第三方声明与致谢
 
-本项目由 [yunwuee](https://github.com/yunwuee) 维护。
+本项目由 [yunwuee](https://github.com/yunwuee) 维护。授权联系邮箱：<yunwuee@gmail.com>。
 
 ## 参考项目
 
 - [hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)：本项目的工作流分层、L1/L2/L3 证据模型和部分 drpy-node 写源经验参考了该项目。原项目使用 MIT License，Copyright (c) 2026 hjdhnx。
 - [hjdhnx/drpy-node](https://github.com/hjdhnx/drpy-node)：drpy-node 规则语义与运行时能力的重要上游参考。
 - [yunwuee/AIBOX](https://github.com/yunwuee/AIBOX)：Aibox 客户端与内置 drpy-node 引擎的实际集成项目。
+- [laugh0608/Radish](https://github.com/laugh0608/Radish)：本项目自定义 Source-Available License 的条款结构设计参考了该项目的 Radish Source-Available License 1.0。本项目许可证为独立制定文本，不继承或替代 Radish 项目的授权条款；实际授权仅以本仓库 [LICENSE](LICENSE) 为准。
 
 参考项目的名称与链接仅用于说明技术来源，不表示其维护者为本项目提供担保或背书。
 

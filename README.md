@@ -2,15 +2,16 @@
 
 [![CI](https://github.com/yunwuee/aibox-drpy-source/actions/workflows/ci.yml/badge.svg)](https://github.com/yunwuee/aibox-drpy-source/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/yunwuee/aibox-drpy-source?display_name=tag)](https://github.com/yunwuee/aibox-drpy-source/releases/latest)
-[![License](https://img.shields.io/github/license/yunwuee/aibox-drpy-source)](LICENSE)
+[![License: Source Available](https://img.shields.io/badge/License-Source--Available-orange.svg)](LICENSE)
 
 面向 Aibox 内置 drpy-node 引擎的公开 AI Skill。它把写源经验、规则语法、诊断流程、真实链路验收和配套 CLI 放在一起，让 Codex 或其他支持 `SKILL.md` 的 Agent 能按证据生成、修复和验证影视、小说、漫画及磁力/BT DS 源。
 
 - 作者与维护者：[yunwuee](https://github.com/yunwuee)
+- 授权联系：[yunwuee@gmail.com](mailto:yunwuee@gmail.com)
 - AIBOX：[yunwuee/AIBOX](https://github.com/yunwuee/AIBOX)
 - 重点参考：[hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)
-- 许可证：MIT
-- 当前版本：v0.1.0
+- 许可证：AIBOX DRPY Source Skill Source-Available License 1.0
+- 当前版本：v0.1.1
 
 ## 直接下载
 
@@ -25,6 +26,7 @@ Release ZIP 不包含 `node_modules`、站点源、用户配置、Cookie、Token
 ~~~text
 README.md
 INSTALL.txt
+LICENSE
 THIRD_PARTY_NOTICES.md
 PACKAGE_MANIFEST.json
 aibox-drpy-source/
@@ -330,6 +332,19 @@ Skill 可以独立运行，不要求用户同时克隆完整 AIBOX 仓库。
 - `share` 会产生外部写操作，只有用户明确要求上传时执行。
 - 分享前检查外部 `$.require()` 依赖和源码完整性。
 - 不用伪造数据把失败阶段包装成通过。
+
+## 版权与授权
+
+本项目采用自定义的 [AIBOX DRPY Source Skill Source-Available License 1.0](LICENSE)，不是 MIT，也不是 OSI 认定的开源许可证。简要说明如下：
+
+- 允许从本项目官方仓库或 Release 下载、安装和运行 Skill，用于个人、学习、学术研究及其他非商业用途。
+- 允许为上述用途修改自己的本地副本，也允许保留必要的私人备份。
+- 可以分享官方仓库或 Release 的原始链接；未经书面许可，不得镜像、转载、重新打包、公开分发原版或修改版。
+- 未经书面许可，不得用于付费产品、付费服务、商业咨询、托管服务或其他营利活动。
+- 使用 Skill 生成的 DS 源、分析、报告或补丁，不会仅因使用本 Skill 就自动归本项目作者所有；但直接复制或改编的项目代码仍受许可证约束。
+- 随仓库分发的第三方代码继续适用各自许可证，本项目许可证不会覆盖或替换第三方许可证。
+
+完整且具有优先效力的条款以 [LICENSE](LICENSE) 英文原文为准。商业授权、转载、再分发或其他额外许可请联系 [yunwuee@gmail.com](mailto:yunwuee@gmail.com)。
 
 ## 配置
 

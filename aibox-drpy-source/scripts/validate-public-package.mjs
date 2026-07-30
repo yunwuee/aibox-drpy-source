@@ -58,6 +58,7 @@ for (const relativePath of publishSet) {
 validateSkillFrontmatter();
 validateAgentMetadata();
 validatePackageMetadata();
+validateLicenseMetadata();
 validateJsonFiles();
 validateTextEncodingAndPrivacy();
 validatePublishedHosts();
@@ -136,14 +137,41 @@ function validatePackageMetadata() {
   if (packageJson.author?.url !== 'https://github.com/yunwuee') {
     errors.push('package.json author.url 必须指向 https://github.com/yunwuee');
   }
+  if (packageJson.author?.email !== 'yunwuee@gmail.com') {
+    errors.push('package.json author.email 必须为 yunwuee@gmail.com');
+  }
   if (packageJson.repository?.url !== 'git+https://github.com/yunwuee/aibox-drpy-source.git') {
     errors.push('package.json repository.url 不正确');
   }
-  if (packageJson.license !== 'MIT') {
-    errors.push('package.json license 必须为 MIT');
+  if (packageJson.license !== 'SEE LICENSE IN LICENSE') {
+    errors.push('package.json license 必须为 SEE LICENSE IN LICENSE');
   }
   if (lockJson.version !== packageJson.version || lockJson.packages?.['']?.version !== packageJson.version) {
     errors.push('package-lock.json 版本与 package.json 不一致');
+  }
+}
+
+function validateLicenseMetadata() {
+  const filePath = path.join(skillRoot, 'LICENSE');
+  if (!fs.existsSync(filePath)) return;
+  const text = fs.readFileSync(filePath, 'utf8');
+  const requiredNotices = [
+    'AIBOX DRPY Source Skill Source-Available License',
+    'Version 1.0, July 30, 2026',
+    'Copyright (c) 2026 yunwuee. All rights reserved.',
+    'https://github.com/yunwuee',
+    'https://github.com/yunwuee/aibox-drpy-source',
+    'yunwuee@gmail.com',
+    'Third-Party Components',
+    'Generated Outputs',
+  ];
+  for (const notice of requiredNotices) {
+    if (!text.includes(notice)) {
+      errors.push('LICENSE 缺少必需版权或授权声明: ' + notice);
+    }
+  }
+  if (/^MIT License\s*$/im.test(text)) {
+    errors.push('项目自身 LICENSE 不得继续标记为 MIT');
   }
 }
 
@@ -165,7 +193,8 @@ function validateTextEncodingAndPrivacy() {
 
   for (const relativePath of publishFiles) {
     const extension = path.extname(relativePath).toLowerCase();
-    if (!textExtensions.has(extension)) continue;
+    const isLicenseFile = path.basename(relativePath).toUpperCase() === 'LICENSE';
+    if (!textExtensions.has(extension) && !isLicenseFile) continue;
     const filePath = path.join(skillRoot, relativePath);
     const bytes = fs.readFileSync(filePath);
     if (bytes.length >= 3 && bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf) {
@@ -205,7 +234,8 @@ function validatePublishedHosts() {
   const reported = new Set();
 
   for (const relativePath of publishFiles) {
-    if (!textExtensions.has(path.extname(relativePath).toLowerCase())) continue;
+    const isLicenseFile = path.basename(relativePath).toUpperCase() === 'LICENSE';
+    if (!textExtensions.has(path.extname(relativePath).toLowerCase()) && !isLicenseFile) continue;
     const text = fs.readFileSync(path.join(skillRoot, relativePath), 'utf8');
     for (const match of text.matchAll(/\bhttps?:\/\/([A-Za-z0-9.-]+)/ig)) {
       const hostname = match[1].toLowerCase();

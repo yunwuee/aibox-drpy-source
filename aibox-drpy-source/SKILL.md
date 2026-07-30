@@ -122,5 +122,6 @@ node <skill-root>/scripts/aibox-skill-cli.mjs check --code-file <source.js> --le
 ## 项目
 
 - 维护者：[yunwuee](https://github.com/yunwuee)
+- 授权联系：yunwuee@gmail.com
 - 仓库：[yunwuee/aibox-drpy-source](https://github.com/yunwuee/aibox-drpy-source)
 - 重点参考：[hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)、[hjdhnx/drpy-node](https://github.com/hjdhnx/drpy-node)、[yunwuee/AIBOX](https://github.com/yunwuee/AIBOX)

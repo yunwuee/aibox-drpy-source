@@ -1,13 +1,14 @@
 {
   "name": "aibox-drpy-source-skill-runtime",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Portable runtime, validation, and helper commands for the public aibox-drpy-source skill.",
   "author": {
     "name": "yunwuee",
+    "email": "yunwuee@gmail.com",
     "url": "https://github.com/yunwuee"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://github.com/yunwuee/aibox-drpy-source#readme",
   "repository": {
     "type": "git",

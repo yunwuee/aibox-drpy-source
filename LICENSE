@@ -1,21 +1,142 @@
-MIT License
+AIBOX DRPY Source Skill Source-Available License
+Version 1.0, July 30, 2026
 
-Copyright (c) 2026 yunwuee
+Copyright (c) 2026 yunwuee. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Author: yunwuee (https://github.com/yunwuee)
+Project: https://github.com/yunwuee/aibox-drpy-source
+Contact: yunwuee@gmail.com
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Purpose and Acceptance
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This repository is source-available. It is not distributed under an
+Open Source Initiative (OSI) approved open-source license.
+
+By downloading, cloning, installing, running, copying, or modifying any
+original content from this repository, you agree to this license. If you do
+not agree, you may still view the repository on an authorized platform, but
+you must not download, install, run, copy, or modify its original content.
+
+2. Limited Permission
+
+Subject to every condition in this license, the copyright owner grants you a
+limited, non-exclusive, non-transferable, non-sublicensable, royalty-free
+permission to:
+
+- view and study the source code;
+- download or clone one copy from the official project repository or an
+  official project release;
+- install and run the Skill for personal, educational, academic research, or
+  other non-commercial use;
+- modify your local copy solely for your own permitted non-commercial use;
+- make a reasonable number of private backup copies needed for that use;
+- share unmodified links to the official project repository and releases; and
+- create a GitHub fork solely when reasonably necessary to prepare and submit
+  a contribution under Section 6.
+
+No permission is granted except as expressly stated in this section.
+
+3. Generated Outputs
+
+A DS source, analysis, report, patch, configuration, or other output is not
+automatically covered by this license merely because this Skill helped create
+it. The copyright owner does not claim ownership of user-created output solely
+because the user ran this Skill.
+
+This exception does not remove rights in repository code or documentation that
+is copied into an output. Any copied or adapted portion of this repository
+remains subject to this license. You are responsible for ensuring that your
+inputs, generated outputs, target websites, and use of those outputs comply
+with applicable law and third-party rights.
+
+4. Restrictions
+
+Without prior written permission from the copyright owner, you must not:
+
+- upload, copy, reproduce, mirror, republish, or redistribute this project, in
+  whole or in substantial part, except for the narrow permissions in Section 2;
+- publish, distribute, sublicense, sell, rent, lease, bundle, host, or otherwise
+  provide the original project or a modified version to another person;
+- use the project or a modified version for any commercial purpose, including
+  a paid product, paid service, commercial consulting, hosted service, or
+  revenue-generating activity;
+- remove, conceal, or alter any copyright, attribution, license, authorship, or
+  other legal notice;
+- use the names, account names, logos, or marks of yunwuee, AIBOX, or this
+  project to imply sponsorship, endorsement, or affiliation;
+- use this project to violate applicable law, infringe third-party rights,
+  bypass access controls or DRM, or access content without authorization; or
+- use a contribution-only fork as an independent distribution, mirror, or
+  competing maintained version of this project.
+
+5. No Patent or Trademark License
+
+No patent, trademark, trade name, logo, publicity, or endorsement right is
+granted. All rights not expressly granted are reserved by the copyright owner.
+
+6. Contributions
+
+If you submit a pull request, patch, issue attachment, code, documentation, or
+other contribution, you represent that you have the legal right to submit it.
+
+Unless the copyright owner agrees otherwise in writing, you grant the
+copyright owner a perpetual, worldwide, non-exclusive, transferable,
+sublicensable, royalty-free, irrevocable right to use, reproduce, modify,
+adapt, publish, relicense, distribute, and otherwise exploit your contribution
+in any form. You retain any copyright you already hold in your contribution.
+
+7. Third-Party Components
+
+This license applies only to original content owned by the copyright owner.
+Third-party projects, dependencies, packages, code, fonts, icons, data, and
+assets remain subject to their own licenses and notices. In particular, a
+third-party license is not replaced, restricted, or expanded by this license.
+See THIRD_PARTY_NOTICES.md and license files distributed with third-party
+components for details.
+
+8. Updates to This License
+
+The copyright owner may publish new versions of this license for future
+releases. A copy you lawfully obtained remains governed by the license version
+included with that copy unless you choose to accept a later version.
+
+9. Disclaimer of Warranty
+
+THE PROJECT IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF TITLE,
+NON-INFRINGEMENT, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+ACCURACY, AVAILABILITY, SECURITY, OR COMPATIBILITY. THE COPYRIGHT OWNER DOES
+NOT WARRANT THAT THE PROJECT OR ANY GENERATED OUTPUT WILL BE ERROR-FREE,
+LEGAL FOR YOUR INTENDED USE, OR SUITABLE FOR ANY WEBSITE, DEVICE, OR SERVICE.
+
+10. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE COPYRIGHT OWNER
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, CONSEQUENTIAL, OR OTHER DAMAGES, OR FOR ANY CLAIM, LOSS, DATA LOSS,
+SERVICE INTERRUPTION, OR LIABILITY, WHETHER IN CONTRACT, TORT, STRICT
+LIABILITY, OR OTHERWISE, ARISING FROM OR RELATED TO THE PROJECT, GENERATED
+OUTPUTS, OR YOUR USE OR INABILITY TO USE THEM, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+11. Termination
+
+Your permissions under this license terminate automatically when you breach
+it. Upon termination, you must stop using the original project and delete all
+copies under your control, except copies that applicable law requires you to
+retain. Sections that by their nature should survive termination, including
+Sections 3 and 5 through 13, remain effective.
+
+12. Commercial Use and Additional Permission
+
+For commercial use, redistribution, publication of a modified version, or any
+other permission not expressly granted here, obtain prior written permission:
+
+yunwuee@gmail.com
+
+13. Priority, Severability, and No Waiver
+
+If this file conflicts with another document in this repository, this LICENSE
+file controls the licensing terms. If any provision is held unenforceable, the
+remaining provisions remain effective to the extent permitted by law. Failure
+to enforce a provision is not a waiver of the right to enforce it later.
