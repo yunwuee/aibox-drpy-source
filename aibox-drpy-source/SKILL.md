@@ -40,7 +40,7 @@ description: 面向 Aibox 内置 drpy-node 引擎生成、修复、分析、调�
 | 新建源 | [写源工作流](references/knowledge/source-writing-workflow.md)、[核心语法](references/knowledge/drpy-basic-format-grammar.md) | [规则手册](references/knowledge/drpy-rule-playbook.md)、[选择器速查](references/knowledge/selector-cheatsheet.md) |
 | 修源 | [质量清单](references/knowledge/source-quality-checklist.md)、[核心语法](references/knowledge/drpy-basic-format-grammar.md) | 对应内容类型和故障手册 |
 | 播放/正文 | [运行时契约](references/knowledge/content-type-runtime-validation.md) | [漫画开发](references/knowledge/comic-source-development-playbook.md)、[图片代理](references/knowledge/comic-image-proxy-playbook.md)、[App API 与切片](references/knowledge/comic-app-api-scramble-retrospective.md) |
-| 特殊内容 | 对应专项手册 | [动态域](references/knowledge/dynamic-host-playbook.md)、[验证码 OCR](references/knowledge/captcha-ocr-playbook.md)、[磁力/BT](references/knowledge/magnet-bt-source-playbook.md)、[海阔转换](references/knowledge/hiker-to-drpy-conversion-playbook.md) |
+| 特殊内容 | 对应专项手册 | [动态域](references/knowledge/dynamic-host-playbook.md)、[验证码 OCR](references/knowledge/captcha-ocr-playbook.md)、[磁力/BT](references/knowledge/magnet-bt-source-playbook.md) |
 | CLI/分享 | [命令示例](references/command-examples.md) | [能力映射](references/capability-map.md) |
 
 漫画或 App API 任务必须读取漫画开发手册。涉及 WebP 切片、条带错位或真机图片乱序时，再读 App API 与切片、图片代理手册。小说和漫画完整验收必须读取运行时契约。

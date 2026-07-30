@@ -11,7 +11,7 @@
 - AIBOX：[yunwuee/AIBOX-public](https://github.com/yunwuee/AIBOX-public)
 - 重点参考：[hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)、[zyfun 写源文档](https://zy.catni.cn/zh-CN/)
 - 许可证：AIBOX DRPY Source Skill Source-Available License 1.0
-- 当前版本：v0.1.2
+- 当前版本：v0.1.3
 
 ## 直接下载
 

@@ -74,7 +74,7 @@
 
 - 列表、分类、搜索、详情封面是否能真实解码，而不只是返回了 URL
 - 如果远端图依赖 `Referer` / `User-Agent`，是否确认规则 `headers` 足够；仍不可读时是否统一走 `proxy_rule`
-- 如果海阔源或接口里出现 AES 解密逻辑，是否把解密移植到 Aibox 源
+- 如果既有源或接口里出现 AES 解密逻辑，是否在 Aibox 源中实现了等价处理
 - `proxy_rule` 是否对普通 JPG/PNG/WEBP 原样返回，只对非图片文件头尝试解密
 - `proxy_rule` 返回二进制图片时是否使用 `[200, mediaType, base64, headers, 1]`
 - L3 报告里的 `imageProbe.imageKind` / `firstImageProbe.imageKind` 是否是 `jpeg/png/webp/gif/avif/svg`

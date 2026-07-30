@@ -1,6 +1,6 @@
 {
   "name": "aibox-drpy-source-skill-runtime",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "description": "Portable runtime, validation, and helper commands for the public aibox-drpy-source skill.",
   "author": {

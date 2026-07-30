@@ -18,13 +18,6 @@ export function createKnowledgeBase(rootDir) {
       filePath: path.join(rootDir, 'references', 'knowledge', 'source-writing-workflow.md'),
     },
     {
-      uri: 'aibox://knowledge/hiker-to-drpy-conversion-playbook',
-      name: 'hiker-to-drpy-conversion-playbook',
-      description: '海阔规则 / ruleEdit 链接转换为 Aibox ds 源的读取流程、字段映射和验收方法。',
-      mimeType: 'text/markdown',
-      filePath: path.join(rootDir, 'references', 'knowledge', 'hiker-to-drpy-conversion-playbook.md'),
-    },
-    {
       uri: 'aibox://knowledge/comic-image-proxy-playbook',
       name: 'comic-image-proxy-playbook',
       description: '漫画源图片代理、防盗链、AES 解密与 live-check 图片探测经验。',
@@ -266,7 +259,6 @@ function buildAutoWritePrompt(args) {
 - aibox://knowledge/drpy-basic-format-grammar
 - aibox://knowledge/selector-cheatsheet
 - aibox://knowledge/source-quality-checklist
-- 如果输入包含 ruleEdit#/?rule=、海阔、hiker 或要求海阔源转 Aibox 源，再额外阅读 aibox://knowledge/hiker-to-drpy-conversion-playbook
 - 如果内容类型是 comic / 漫画，先额外阅读 aibox://knowledge/comic-source-development-playbook
 - 如果漫画出现封面不显示、pics:// 图片空白、AES 图片解密、proxy_rule、图片防盗链，再额外阅读 aibox://knowledge/comic-image-proxy-playbook
 - 如果内容类型是 novel / 小说或 comic / 漫画，再额外阅读 aibox://knowledge/content-type-runtime-validation

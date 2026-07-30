@@ -8,7 +8,7 @@
 - `lazy` 能返回 `pics://`，但阅读器图片空白、乱码或解码失败。
 - 浏览器直接打开图片需要特定 `Referer` / `User-Agent`。
 - 图片接口返回 `image/*`，但文件头不是 `JPEG/PNG/WEBP/GIF/AVIF/SVG`。
-- 海阔源里有 `imageDecrypt`、`AES/CBC/PKCS7Padding`、`CryptoJS.AES.decrypt`、`getBytes` 或二进制代理逻辑。
+- 既有漫画规则或接口代码中有 `imageDecrypt`、`AES/CBC/PKCS7Padding`、`CryptoJS.AES.decrypt`、`getBytes` 或二进制代理逻辑。
 
 这类问题通常不是选择器问题，而是图片链路问题：CDN 防盗链、二进制加密、切片重排、接口返回包装层，或 App 端无法带上站点要求的请求头。
 
@@ -77,7 +77,7 @@ proxy_rule: async function (params) {
 
 ## AES 解密模式
 
-海阔规则常见写法是 `AES/CBC/PKCS7Padding`。迁移到 Aibox ds 源时，优先用 Node `crypto`；如果运行环境不提供 `require`，再用规则内已有的 `CryptoJS` 兜底。
+既有规则使用 `AES/CBC/PKCS7Padding` 时，优先用 Node `crypto` 实现等价解密；如果运行环境不提供 `require`，再用规则内已有的 `CryptoJS` 兜底。
 
 Node 写法：
 
@@ -115,10 +115,10 @@ function maybeDecryptImage(buffer) {
 
 ## AES 加密图片案例模式
 
-某类海阔漫画源的通用关键点：
+某类使用 AES 加密图片的漫画源具有以下通用关键点：
 
 - 章节图和部分封面走远端图片地址，但远端会返回加密二进制。
-- 海阔规则里的 `imageDecrypt` 使用 `AES/CBC/PKCS7Padding`。
+- 原规则里的 `imageDecrypt` 使用 `AES/CBC/PKCS7Padding`。
 - key 和 iv 必须从用户提供的原规则或已授权抓包证据读取，不要写入公共模板。
 - Aibox 源需要实现 `proxy_rule`，由代理补 `User-Agent` / `Referer`，拉取二进制，AES 解密后返回真实 `image/webp`。
 - `lazy` 章节图返回 `pics://proxyUrl1&&proxyUrl2...`。
