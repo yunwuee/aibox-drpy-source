@@ -45,6 +45,8 @@ description: 面向 Aibox 内置 drpy-node 引擎生成、修复、分析、调�
 
 漫画或 App API 任务必须读取漫画开发手册。涉及 WebP 切片、条带错位或真机图片乱序时，再读 App API 与切片、图片代理手册。小说和漫画完整验收必须读取运行时契约。
 
+当本地知识不足，或需要对照 T1-T4 通用语法、写源工具、静态筛选、数据爬虫和常见技巧时，再读取[外部参考索引](references/external-resources.md)。外部文档只用于补充取证和交叉核对，不得覆盖当前 AIBOX 引擎代码、设备响应和 L1/L2/L3 结果。
+
 ## 站型与实现阶梯
 
 先判断 route 和 contentType：
@@ -124,4 +126,5 @@ node <skill-root>/scripts/aibox-skill-cli.mjs check --code-file <source.js> --le
 - 维护者：[yunwuee](https://github.com/yunwuee)
 - 授权联系：yunwuee@gmail.com
 - 仓库：[yunwuee/aibox-drpy-source](https://github.com/yunwuee/aibox-drpy-source)
-- 重点参考：[hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)、[hjdhnx/drpy-node](https://github.com/hjdhnx/drpy-node)、[yunwuee/AIBOX](https://github.com/yunwuee/AIBOX)
+- AIBOX：[yunwuee/AIBOX-public](https://github.com/yunwuee/AIBOX-public)
+- 重点参考：[hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)、[hjdhnx/drpy-node](https://github.com/hjdhnx/drpy-node)、[zyfun 写源文档](https://zy.catni.cn/zh-CN/)

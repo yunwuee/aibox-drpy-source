@@ -102,6 +102,13 @@ export function createKnowledgeBase(rootDir) {
       filePath: path.join(rootDir, 'references', 'knowledge', 'app-template-notes.md'),
     },
     {
+      uri: 'aibox://knowledge/external-resources',
+      name: 'external-resources',
+      description: 'zyfun 等外部写源资料索引，仅在本地知识不足或需要交叉核对 T1-T4 概念时读取。',
+      mimeType: 'text/markdown',
+      filePath: path.join(rootDir, 'references', 'external-resources.md'),
+    },
+    {
       uri: 'aibox://template/ds-template',
       name: 'ds-template',
       description: '最终 ds 源输出骨架，优先按模板填空。',

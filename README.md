@@ -8,10 +8,10 @@
 
 - 作者与维护者：[yunwuee](https://github.com/yunwuee)
 - 授权联系：[yunwuee@gmail.com](mailto:yunwuee@gmail.com)
-- AIBOX：[yunwuee/AIBOX](https://github.com/yunwuee/AIBOX)
-- 重点参考：[hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)
+- AIBOX：[yunwuee/AIBOX-public](https://github.com/yunwuee/AIBOX-public)
+- 重点参考：[hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)、[zyfun 写源文档](https://zy.catni.cn/zh-CN/)
 - 许可证：AIBOX DRPY Source Skill Source-Available License 1.0
-- 当前版本：v0.1.1
+- 当前版本：v0.1.2
 
 ## 直接下载
 
@@ -402,9 +402,12 @@ npm run package:zip --prefix .\aibox-drpy-source
 
 本项目重点参考：
 
-- [hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)
-- [hjdhnx/drpy-node](https://github.com/hjdhnx/drpy-node)
-- [yunwuee/AIBOX](https://github.com/yunwuee/AIBOX)
-- [brix/crypto-js](https://github.com/brix/crypto-js)
+- [hjdhnx/drpy-node-skill](https://github.com/hjdhnx/drpy-node-skill)：drpy-node Skill 工作流、证据分层和写源经验参考。
+- [hjdhnx/drpy-node](https://github.com/hjdhnx/drpy-node)：drpy-node 规则语义、模板与运行时能力参考。
+- [yunwuee/AIBOX-public](https://github.com/yunwuee/AIBOX-public)：AIBOX 公开版本、客户端发行与实际集成参考。
+- [zyfun 写源文档](https://zy.catni.cn/zh-CN/)：T1-T4 数据源与跨平台播放器生态参考，包含[写源语法](https://zy.catni.cn/zh-CN/source/grammar.html)、[写源工具](https://zy.catni.cn/zh-CN/source/ide.html)、[静态筛选](https://zy.catni.cn/zh-CN/source/sift.html)、[数据爬虫](https://zy.catni.cn/zh-CN/source/spider.html)和[常见技巧](https://zy.catni.cn/zh-CN/source/skill.html)。
+- [Hiram-Wong/zyfun](https://github.com/Hiram-Wong/zyfun)：zyfun 官方源码仓库，GitHub 标识许可证为 AGPL-3.0。
+- [laugh0608/Radish](https://github.com/laugh0608/Radish)：本项目 Source-Available License 的条款结构参考。
+- [brix/crypto-js](https://github.com/brix/crypto-js)：随 Skill 分发的第三方加密库。
 
 完整版权与第三方许可证声明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

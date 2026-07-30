@@ -230,6 +230,7 @@ function validatePublishedHosts() {
     'registry.npmjs.org',
     'textdb.online',
     'www.w3.org',
+    'zy.catni.cn',
   ]);
   const reported = new Set();
 
