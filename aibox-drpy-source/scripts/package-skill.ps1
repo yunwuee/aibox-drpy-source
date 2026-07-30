@@ -1,6 +1,7 @@
 param(
   [string]$SkillRoot,
-  [string]$OutputDir
+  [string]$OutputDir,
+  [string]$PackageName
 )
 
 $ErrorActionPreference = 'Stop'
@@ -26,11 +27,8 @@ if (-not (Test-Path -LiteralPath (Join-Path $SkillRoot 'SKILL.md') -PathType Lea
   throw "SKILL.md not found under $SkillRoot"
 }
 
+$repoRoot = Split-Path $SkillRoot -Parent
 if (-not $OutputDir) {
-  $repoRoot = Split-Path $SkillRoot -Parent
-  if (-not (Test-Path -LiteralPath (Join-Path $repoRoot '.git'))) {
-    $repoRoot = Split-Path $repoRoot -Parent
-  }
   $OutputDir = Join-Path $repoRoot 'packages'
 }
 if (-not (Test-Path -LiteralPath $OutputDir -PathType Container)) {
@@ -39,7 +37,16 @@ if (-not (Test-Path -LiteralPath $OutputDir -PathType Container)) {
 $OutputDir = Resolve-Directory $OutputDir
 
 $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
-$zipPath = Join-Path $OutputDir "aibox-drpy-source-skill-$stamp.zip"
+if ($PackageName) {
+  if ([System.IO.Path]::GetFileName($PackageName) -ne $PackageName -or
+      [System.IO.Path]::GetExtension($PackageName) -ne '.zip') {
+    throw 'PackageName must be a .zip file name without a directory'
+  }
+  $zipFileName = $PackageName
+} else {
+  $zipFileName = "aibox-drpy-source-skill-$stamp.zip"
+}
+$zipPath = Join-Path $OutputDir $zipFileName
 if (Test-Path -LiteralPath $zipPath) {
   throw "Package already exists: $zipPath"
 }
@@ -108,6 +115,13 @@ foreach ($item in $items) {
   }
 }
 
+foreach ($rootFile in @('README.md', 'THIRD_PARTY_NOTICES.md')) {
+  $source = Join-Path $repoRoot $rootFile
+  if (Test-Path -LiteralPath $source -PathType Leaf) {
+    Copy-Item -LiteralPath $source -Destination (Join-Path $stageRoot $rootFile) -Force
+  }
+}
+
 $installText = @'
 Aibox DRPY Source Skill
 
@@ -116,16 +130,22 @@ Install:
 2. Copy the aibox-drpy-source folder into your Codex skills directory.
    Windows: %USERPROFILE%\.codex\skills\
    macOS/Linux: ~/.codex/skills/
-3. Restart Codex and invoke the skill with $aibox-drpy-source.
+3. Run npm ci inside the installed aibox-drpy-source directory.
+4. Restart Codex and invoke the skill with $aibox-drpy-source.
 
 Quick check:
   node .\aibox-drpy-source\scripts\aibox-skill-cli.mjs help
+  node .\aibox-drpy-source\scripts\aibox-skill-cli.mjs doctor
   node .\aibox-drpy-source\scripts\aibox-skill-cli.mjs resources list
+
+Example prompt:
+  Use $aibox-drpy-source to analyze https://example.com, generate an Aibox
+  DS source from real evidence, and complete the required L1/L2/L3 checks.
 
 Notes:
 - This package contains no built-in site sources or user-generated rules.
 - This package excludes node_modules/, output/, temp/, logs, and config/aibox.config.json.
-- Run npm ci inside aibox-drpy-source after extraction.
+- Read README.md for detailed installation, prompts, commands, and safety boundaries.
 - On Windows, if Python-based skill validation reads Chinese text as GBK, run it with PYTHONUTF8=1.
 '@
 Write-Utf8NoBom (Join-Path $stageRoot 'INSTALL.txt') $installText
@@ -137,6 +157,8 @@ $manifest = [ordered]@{
   nodeModulesIncluded = $false
   builtInSourcesIncluded = $false
   included = @(
+    'README.md',
+    'THIRD_PARTY_NOTICES.md',
     'SKILL.md',
     'LICENSE',
     'agents/openai.yaml',
@@ -178,6 +200,8 @@ $validationError = $null
 try {
   $entries = @($zip.Entries | ForEach-Object { $_.FullName -replace '\\', '/' })
   $requiredEntries = @(
+    'README.md',
+    'THIRD_PARTY_NOTICES.md',
     'aibox-drpy-source/SKILL.md',
     'aibox-drpy-source/LICENSE',
     'aibox-drpy-source/agents/openai.yaml',

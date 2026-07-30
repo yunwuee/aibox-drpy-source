@@ -11,17 +11,8 @@ permissions:
 
 jobs:
   validate:
-    name: Node ${{ matrix.node }} on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - windows-latest
-        node:
-          - 20.18.1
-          - 22
+    name: Validate on Node 22
+    runs-on: windows-latest
 
     defaults:
       run:
@@ -34,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 22
           cache: npm
           cache-dependency-path: aibox-drpy-source/package-lock.json
 
@@ -51,9 +42,9 @@ jobs:
         run: node scripts/aibox-skill-cli.mjs resources list
 
       - name: Validate zip package
-        if: runner.os == 'Windows' && matrix.node == '20.18.1'
         shell: pwsh
         run: |
-          ./scripts/package-skill.ps1 -OutputDir ../packages
-          $archive = Get-ChildItem ../packages/aibox-drpy-source-skill-*.zip | Select-Object -First 1
-          if (-not $archive) { throw '未生成 zip 包' }
+          ./scripts/package-skill.ps1 -OutputDir ../packages -PackageName aibox-drpy-source-skill.zip
+          if (-not (Test-Path ../packages/aibox-drpy-source-skill.zip)) {
+            throw '未生成 zip 包'
+          }

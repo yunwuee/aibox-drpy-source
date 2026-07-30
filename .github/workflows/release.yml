@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build release package
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: aibox-drpy-source
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: aibox-drpy-source/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate public package
+        run: npm run validate:public
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build release assets
+        shell: pwsh
+        run: |
+          ./scripts/package-skill.ps1 -OutputDir ../release -PackageName aibox-drpy-source-skill.zip
+          $asset = Resolve-Path ../release/aibox-drpy-source-skill.zip
+          $hash = (Get-FileHash -Algorithm SHA256 $asset).Hash.ToLowerInvariant()
+          $checksumPath = $asset.Path + '.sha256'
+          $checksum = $hash + '  aibox-drpy-source-skill.zip' + [Environment]::NewLine
+          [System.IO.File]::WriteAllText(
+            $checksumPath,
+            $checksum,
+            [System.Text.UTF8Encoding]::new($false)
+          )
+
+      - name: Publish GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $asset = Resolve-Path ../release/aibox-drpy-source-skill.zip
+          $checksum = Resolve-Path ../release/aibox-drpy-source-skill.zip.sha256
+          gh release view $tag *> $null
+          if ($LASTEXITCODE -eq 0) {
+            gh release upload $tag $asset $checksum --clobber
+          } else {
+            gh release create $tag $asset $checksum --verify-tag --generate-notes --title "aibox-drpy-source $tag"
+          }

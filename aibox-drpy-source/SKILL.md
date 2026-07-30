@@ -5,12 +5,14 @@ description: 面向 Aibox 内置 drpy-node 引擎生成、修复、分析、调�
 
 # Aibox DRPY 写源
 
-## 初始化
+## AI 启动协议
 
-- 将包含本文件的目录视为 skill 根目录，不依赖固定安装路径或 AIBOX 主仓库目录。
-- 首次使用或 package-lock.json 变化后，在 skill 根目录运行 npm ci。
-- 先运行 node <skill-root>/scripts/aibox-skill-cli.mjs help，以当前 CLI 输出为准。
-- 需要读取详细知识时使用 resources list 和 resources read；不要一次加载全部 references。
+1. 将包含本文件的目录视为 `skill-root`，不要依赖固定安装路径或 AIBOX 主仓库目录。
+2. 首次使用或 `package-lock.json` 变化后，在 `skill-root` 运行 `npm ci`。
+3. 运行 `node <skill-root>/scripts/aibox-skill-cli.mjs help`，以当前 CLI 输出为准。
+4. 运行 `resources list`，再按“任务路由”只读取当前任务需要的 reference。
+5. 明确任务是新建、修复、分析还是验收，并确认目标网址、内容类型、已有源码、输出目录和允许的写操作。
+6. 未指定输出目录时，把生成结果写到当前任务工作区的 `output/`。
 
 ## 发行边界
 
